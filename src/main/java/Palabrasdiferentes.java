@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -13,17 +12,15 @@ public class Palabrasdiferentes {
         String lines= "";
         try{
             Scanner sc=new Scanner(file);
-            while(sc.hasNextLine()){
-                lines +=sc.nextLine();
-            }
+            while(sc.hasNextLine()){lines +=sc.nextLine();}
         }catch(FileNotFoundException e){
             System.out.println(e);
         }
         return lines.split(" ");
     }
-
     public static void main(String[] args){
-    final String Directorio="C:\\Users\\erubi\\Desktop\\Proyecto_phishing\\Textos";
+        Scanner sc = new Scanner(System.in);
+        String Directorio= sc.nextLine();
     try(DirectoryStream<Path> ds= Files.newDirectoryStream(Paths.get(Directorio))){
         for(Path ruta: ds){
             System.out.println(ruta.getFileName());
@@ -38,7 +35,3 @@ public class Palabrasdiferentes {
     }
     }
 }
-
-
-
-
